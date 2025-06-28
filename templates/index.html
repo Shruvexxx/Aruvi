@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReadWiseAI</title>
+</head>
+<body>
+  <h1>📚 ReadWiseAI</h1>
+
+  <form method="POST">
+    <textarea name="text" rows="10" cols="70" placeholder="Paste or type your text here..."></textarea><br>
+    <input type="submit" value="Summarize & Recommend">
+  </form>
+
+  {% if summary %}
+    <h2>📝 Summary:</h2>
+    <p>{{ summary }}</p>
+  {% endif %}
+
+  {% if recommendations %}
+    <h2>📖 Recommendations:</h2>
+    <ul>
+      {% for item in recommendations %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if summary %}
+    <h2>🤔 Was this helpful?</h2>
+    <form method="POST">
+      <button type="submit" name="feedback" value="👍">👍 Yes</button>
+      <button type="submit" name="feedback" value="👎">👎 No</button>
+    </form>
+  {% endif %}
+
+  {% if feedback %}
+    <p>Thank you for your feedback: {{ feedback }}</p>
+  {% endif %}
+</body>
+</html>
