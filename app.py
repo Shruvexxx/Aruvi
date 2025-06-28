@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from summarizer import summarize_text
-from recommender.py import get_recommendations
+from recommender import get_recommendations
 from feedback import save_feedback
 
 app = Flask(__name__)
