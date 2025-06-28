@@ -1,6 +1,6 @@
 # ARUVI
 
-**ReadWiseAI** is an AI-powered reading assistant that:
+**ARUVI** is an AI-powered reading assistant that:
 - Summarizes user input
 - Recommends related articles or topics
 - Collects feedback for future improvement
