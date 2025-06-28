@@ -1,4 +1,4 @@
-# ReadWiseAI
+# ARUVI
 
 **ReadWiseAI** is an AI-powered reading assistant that:
 - Summarizes user input
