@@ -1,42 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>ARUVI</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>📚 ARUVI</h1>
+  <!-- Transparent overlay to soften watermark -->
+  <div class="overlay"></div>
 
-  <form method="POST">
-    <textarea name="text" rows="10" cols="70" placeholder="Paste or type your text here..."></textarea><br>
-    <input type="submit" value="Summarize & Recommend">
-  </form>
+  <!-- Main content container -->
+  <div class="container">
+    <h1>ARUVI</h1>
+    <p class="subheading">Your AI-Powered Reading Companion</p>
 
-  {% if summary %}
-    <h2>📝 Summary:</h2>
-    <p>{{ summary }}</p>
-  {% endif %}
-
-  {% if recommendations %}
-    <h2>📖 Recommendations:</h2>
-    <ul>
-      {% for item in recommendations %}
-        <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-  {% if summary %}
-    <h2>🤔 Was this helpful?</h2>
     <form method="POST">
-      <button type="submit" name="feedback" value="👍">👍 Yes</button>
-      <button type="submit" name="feedback" value="👎">👎 No</button>
+      <textarea name="text" placeholder="Paste or type your text here..."></textarea><br>
+      <input type="submit" value="Summarize & Recommend">
     </form>
-  {% endif %}
-
-  {% if feedback %}
-    <p>Thank you for your feedback: {{ feedback }}</p>
-  {% endif %}
+  </div>
 </body>
 </html>
