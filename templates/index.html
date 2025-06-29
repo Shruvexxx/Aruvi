@@ -15,6 +15,24 @@
       <textarea name="text" placeholder="Paste or type your text here..."></textarea><br>
       <input type="submit" value="Summarize & Recommend">
     </form>
+
+    {% if summary %}
+      <div class="output-box">
+        <h3>Summary:</h3>
+        <p>{{ summary }}</p>
+      </div>
+    {% endif %}
+
+    {% if recommendations %}
+      <div class="output-box">
+        <h3>Recommendations:</h3>
+        <ul>
+          {% for item in recommendations %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
 </body>
 </html>
