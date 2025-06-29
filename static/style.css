@@ -1,32 +1,32 @@
 body {
-  background-color: #a8d5a2; /* soft green */
+  background-color: #a8d5a2;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Main content layout */
+/* Container to vertically center */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  padding-top: 60px;
+  width: 100%;
 }
 
-/* Elegant main heading */
+/* Heading */
 h1 {
-  color: #006400; /* dark green */
+  color: #006400;
   font-size: 64px;
   font-weight: bold;
-  letter-spacing: 2px;
   font-family: 'Georgia', serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
-/* Subtitle under heading */
 .subheading {
   font-size: 18px;
   font-style: italic;
@@ -34,7 +34,7 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Form design */
+/* Form box */
 form {
   background-color: #006400;
   padding: 30px;
@@ -44,7 +44,6 @@ form {
   max-width: 90%;
 }
 
-/* Text input */
 textarea {
   width: 100%;
   height: 150px;
@@ -55,7 +54,6 @@ textarea {
   resize: none;
 }
 
-/* Submit button */
 input[type="submit"] {
   margin-top: 15px;
   background-color: #2e8b57;
@@ -69,4 +67,20 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #1e6b40;
+}
+
+/* Output styles */
+.output-box {
+  background: #ffffff;
+  margin-top: 25px;
+  padding: 20px;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.output-box h3 {
+  margin-top: 0;
+  color: #006400;
 }
