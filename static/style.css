@@ -1,89 +1,72 @@
 body {
-  background-color: #a8d5a2;
+  background-color: #a8d5a2; /* soft green */
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("../static/watermark.png");
-  background-size: 500px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 1;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(168, 213, 162, 0.85); /* Same as bg with 85% solid */
-  z-index: 0;
-}
-
+/* Main content layout */
 .container {
-  position: relative;
-  z-index: 1; /* Ensure it's above the background */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
-
-
-h1 {
-  text-align: center;
-  color: #00340e;
-}
-
-form {
-  width: 60%;
-  margin: 20px auto;
-  background: green;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Elegant main heading */
+h1 {
+  color: #006400; /* dark green */
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Georgia', serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+/* Subtitle under heading */
+.subheading {
+  font-size: 18px;
+  font-style: italic;
+  color: #2e7d32;
+  margin-bottom: 30px;
+}
+
+/* Form design */
+form {
+  background-color: #006400;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  max-width: 90%;
+}
+
+/* Text input */
 textarea {
   width: 100%;
   height: 150px;
-  padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 8px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
   resize: none;
-  font-size: 14px;
 }
 
-input[type="submit"],
-button {
-  background-color: #6aa84f;
-  color: green;
+/* Submit button */
+input[type="submit"] {
+  margin-top: 15px;
+  background-color: #2e8b57;
+  color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 16px;
 }
 
-button {
-  margin-right: 10px;
-}
-
-input[type="submit"]:hover,
-button:hover {
-  background-color: #006616;
-}
-
-h2 {
-  color: #444;
-  text-align: center;
-}
-
-ul {
-  width: 60%;
-  margin: 0 auto;
-  padding-left: 20px;
+input[type="submit"]:hover {
+  background-color: #1e6b40;
 }
