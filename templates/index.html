@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>ARUVI</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARUVI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>ARUVI</h1>
-    <p class="subheading">Your AI-Powered Reading Companion</p>
+    <div class="container">
+        <h1>ARUVI</h1>
 
-    <form method="POST">
-      <textarea name="text" placeholder="Paste or type your text here..."></textarea><br>
-      <input type="submit" value="Summarize & Recommend">
-    </form>
+        <!-- Summarization Input Form -->
+        <form method="POST" class="form">
+            <textarea name="text" placeholder="Paste or type your text here..."></textarea>
+            <input type="submit" value="Summarize & Recommend">
+        </form>
 
-    {% if summary %}
-      <div class="output-box">
-        <h3>Summary:</h3>
-        <p>{{ summary }}</p>
-      </div>
-    {% endif %}
+        <!-- Output Section -->
+        {% if summary %}
+        <div class="output-box">
+            <h3>Summary:</h3>
+            <p>{{ summary }}</p>
+        </div>
+        {% endif %}
 
-    {% if recommendations %}
-      <div class="output-box">
-        <h3>Recommendations:</h3>
-        <ul>
-          {% for item in recommendations %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-  </div>
+        {% if recommendations %}
+        <div class="output-box">
+            <h3>Recommendations:</h3>
+            <ul>
+                {% for item in recommendations %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Feedback Section -->
+        <form method="POST" class="feedback-section">
+            <label for="feedback">Feedback:</label>
+            <textarea name="feedback" placeholder="Give your feedback here..."></textarea>
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
 </body>
 </html>
