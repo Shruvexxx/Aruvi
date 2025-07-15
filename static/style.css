@@ -1,6 +1,6 @@
 /* Body Styling */
 body {
-  background-color: #a8d5a2;
+  background-color: #000035;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body {
 
 /* Heading */
 h1 {
-  color: #065f1c;
+  color: #81b1ce;
   font-size: 48px; /* Smaller */
   font-weight: bold;
   font-family: 'Georgia', serif;
@@ -31,7 +31,7 @@ h1 {
 
 /* Form Styling */
 form {
-  background-color: #006400;
+  background-color: #113065;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@ textarea {
 /* Summarize Button */
 input[type="submit"],
 button {
-  background-color: #2e8b57;
+  background-color: #aad6ec;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -89,7 +89,7 @@ button:hover {
 
 /* Feedback Section */
 .feedback-section {
-  background-color: #006400;
+  background-color: #aad6ec;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
