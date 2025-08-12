@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ARUVI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <title>ARUVI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div class="container">
-        <h1>ARUVI</h1>
+  <div class="container">
+    <h1>ARUVI</h1>
 
-        <!-- Summarization Input Form -->
-        <form method="POST" class="form">
-            <textarea name="text" placeholder="Paste or type your text here..."></textarea>
-            <input type="submit" value="Summarize & Recommend">
-        </form>
+    <form method="POST" class="form">
+      <input type="hidden" name="action" value="summarize">
+      <textarea name="text" placeholder="Paste or type your text here..." required></textarea>
+      <input type="submit" value="Summarize & Recommend">
+    </form>
 
-        <!-- Output Section -->
-        {% if summary %}
-        <div class="output-box">
-            <h3>Summary:</h3>
-            <p>{{ summary }}</p>
-        </div>
-        {% endif %}
-
-        {% if recommendations %}
-        <div class="output-box">
-            <h3>Recommendations:</h3>
-            <ul>
-                {% for item in recommendations %}
-                    <li>{{ item }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-
-        <!-- Feedback Section -->
-        <form method="POST" class="feedback-section">
-            <label for="feedback">Feedback:</label>
-            <textarea name="feedback" placeholder="Give your feedback here..."></textarea>
-            <input type="submit" value="Submit Feedback">
-        </form>
+    {% if summary %}
+    <div class="output-box">
+      <h3>Summary:</h3>
+      <p>{{ summary }}</p>
     </div>
+    {% endif %}
+
+    {% if recommendations %}
+    <div class="output-box">
+      <h3>Recommendations:</h3>
+      <ul>
+        {% for title, url in recommendations %}
+          <li><a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <form method="POST" class="feedback-section">
+      <input type="hidden" name="action" value="feedback">
+      <label for="feedback_text">Feedback (what was good/bad & why):</label>
+      <textarea name="feedback_text" id="feedback_text" placeholder="Write your feedback..."></textarea>
+      <input type="submit" value="Submit Feedback">
+    </form>
+  </div>
 </body>
 </html>
