@@ -1,2 +1,8 @@
 flask
 requests
+python-dotenv
+gunicorn
+feedparser
+trafilatura
+sentence-transformers
+numpy
