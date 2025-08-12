@@ -1,0 +1,10 @@
+{
+  "max_per_feed": 25,
+  "feeds": [
+    "https://ai.googleblog.com/atom.xml",
+    "https://openai.com/blog/rss.xml",
+    "https://www.fast.ai/atom.xml",
+    "https://rss.arxiv.org/rss/cs.LG",
+    "https://rss.arxiv.org/rss/cs.CL"
+  ]
+}
