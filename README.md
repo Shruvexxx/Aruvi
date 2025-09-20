@@ -1,25 +1,24 @@
-# ARUVI
+• ARUVI — AI-Powered Reading Assistant
 
-**ARUVI** is an AI-powered reading assistant that:
-- Summarizes user input
-- Recommends related articles or topics
-- Collects feedback for future improvement
+ARUVI is a lightweight web app that helps users read smarter by:
+- Summarizing long text into short, effective takeaways
+- Recommending related articles and papers from trusted sources
+- Collecting user feedback to improve over time
 
-### 💡 Features
-- Simple web interface using Flask
-- Text summarization using LLM (or mock logic)
-- Keyword-based recommendation engine
-- Feedback tracking (👍/👎)
+---
 
-### 🧠 AIML Concepts Used
-- Natural Language Processing (NLP)
-- Text summarization
-- Content recommendation
-- Feedback learning system
+• Features
+- Simple web interface built with Flask
+- Summarization (offline extractive, with Hugging Face optional)
+- Semantic recommendations via RSS and arXiv
+- Feedback capture stored locally in CSV or external storage
+- Deployable on GitHub + Render or qRaptor
 
-### ⚙️ How to Run (GitHub Codespaces or Mac)
-1. Clone or open repo in Codespaces
-2. Run:
-```bash
-pip install -r requirements.txt
-python app.py
+---
+
+• Setup (Local)
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/YourUser/Aruvi.git
+   cd Aruvi
