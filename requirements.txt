@@ -7,3 +7,5 @@ trafilatura
 sentence-transformers
 numpy
 sumy
+rank-bm25
+tldextract
