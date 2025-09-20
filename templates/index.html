@@ -1,44 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARUVI</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div class="bg-animation"></div>
-  
-  <h1 class="title">ARUVI</h1>
+  <!-- animated background -->
+  <div class="bg"></div>
 
-  <!-- Input Box -->
-  <form method="POST" class="box">
-    <input type="hidden" name="action" value="summarize">
-    <textarea name="text" class="textbox" placeholder="Paste or type your text here..." required></textarea>
-    <button type="submit" class="btn">Summarize</button>
-  </form>
+  <header class="nav">
+    <h1 class="brand">ARUVI</h1>
+  </header>
 
-  <!-- Output Box -->
-  {% if summary %}
-  <div class="box">
-    <h3>Summary</h3>
-    <p>{{ summary }}</p>
+  <main class="wrap">
+    <!-- Input Card -->
+    <section class="card">
+      <form method="POST" class="stack">
+        <input type="hidden" name="action" value="summarize">
+        <label class="label" for="text">Enter text to summarize</label>
+        <textarea id="text" name="text" class="input" placeholder="Paste or type your text here…" required></textarea>
+        <button class="btn" type="submit">Summarize</button>
+        <p class="hint">Target length ~60–80 words. Keep it clean and focused.</p>
+      </form>
+    </section>
 
-    {% if recommendations %}
-    <h3>Recommendations</h3>
-    <ul>
-      {% for title, url in recommendations %}
-        <li><a href="{{ url }}" target="_blank">{{ title }}</a></li>
-      {% endfor %}
-    </ul>
+    {% if summary %}
+    <!-- Output Card -->
+    <section class="card fade-in">
+      <div class="card-section">
+        <h2 class="section-title">Summary</h2>
+        <p class="summary">{{ summary }}</p>
+      </div>
+
+      {% if recommendations %}
+      <div class="card-section">
+        <h2 class="section-title">Recommendations</h2>
+        <ul class="list">
+          {% for title, url in recommendations %}
+          <li class="list-item">
+            <a href="{{ url }}" target="_blank" rel="noopener" class="link">{{ title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="card-section">
+        <form method="POST" class="stack">
+          <input type="hidden" name="action" value="feedback">
+          <label class="label" for="feedback_text">Feedback</label>
+          <textarea id="feedback_text" name="feedback_text" class="input small" placeholder="What was good or missing?"></textarea>
+          <button class="btn ghost" type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
     {% endif %}
+  </main>
 
-    <form method="POST" class="feedback-form">
-      <input type="hidden" name="action" value="feedback">
-      <textarea name="feedback_text" placeholder="Write your feedback..."></textarea>
-      <button type="submit" class="btn">Submit Feedback</button>
-    </form>
-  </div>
-  {% endif %}
+  <footer class="foot">
+    <span class="muted">Made for focused reading.</span>
+  </footer>
 </body>
 </html>

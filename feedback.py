@@ -1,7 +1,8 @@
 # feedback.py — send feedback to Google Sheets API
 import os, requests
 
-SHEETS_WEBAPP_URL = os.getenv(https://script.google.com/macros/s/AKfycbxdkgs261p9qWB1NHXWXHBmZMyuHpIWAmXF-kS6KAkJ5hhthcuo0NoHf1q2ulcKpRvWRA/exec)  # set this in env
+# Read from environment variable
+SHEETS_WEBAPP_URL = os.getenv("FEEDBACK_SHEETS_URL")
 
 def save_feedback(summary_text: str, feedback_text: str):
     if not SHEETS_WEBAPP_URL:
@@ -18,4 +19,3 @@ def save_feedback(summary_text: str, feedback_text: str):
             print("Feedback POST failed:", r.text)
     except Exception as e:
         print("Feedback error:", e)
-

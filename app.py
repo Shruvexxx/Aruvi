@@ -1,17 +1,4 @@
-from flask import Flask, render_template, request
-from summarizer import summarize_text
-from recommender import get_recommendations
-from feedback import save_feedback
-
-app = Flask(__name__)
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    summary = ""
-    recommendations = []
-    feedback = ""
-    
-    if request.m# app.py
+# app.py
 from flask import Flask, render_template, request, redirect, url_for
 from summarizer import summarize_text
 from recommender import get_recommendations
@@ -26,12 +13,12 @@ def index():
         action = request.form.get("action", "")
         if action == "summarize":
             input_text = request.form.get("text", "")
-            summary = summarize_text(input_text)  # or style="paragraph"/"bullets"
+            summary = summarize_text(input_text)
             LAST_SUMMARY["text"] = summary
             return redirect(url_for("index"))
         elif action == "feedback":
             fb = request.form.get("feedback_text", "")
-            save_feedback(LAST_SUMMARY.get("text",""), fb)
+            save_feedback(LAST_SUMMARY.get("text", ""), fb)
             return redirect(url_for("index"))
 
     summary = LAST_SUMMARY.get("text", "")
@@ -39,17 +26,4 @@ def index():
     return render_template("index.html", summary=summary, recommendations=recs)
 
 if __name__ == "__main__":
-    app.run(debug=True)
-ethod == "POST":
-        if "text" in request.form:
-            input_text = request.form["text"]
-            summary = summarize_text(input_text)
-            recommendations = get_recommendations(input_text)
-        elif "feedback" in request.form:
-            feedback = request.form["feedback"]
-            save_feedback(feedback)
-    
-    return render_template("index.html", summary=summary, recommendations=recommendations, feedback=feedback)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
