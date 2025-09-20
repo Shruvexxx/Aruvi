@@ -9,3 +9,14 @@ numpy
 sumy
 rank-bm25
 tldextract
+streamlit
+scikit-learn
+nltk
+sentence-transformers
+rank-bm25
+tldextract
+numpy
+requests
+feedparser
+trafilatura
+python-dotenv
