@@ -6,3 +6,4 @@ feedparser
 trafilatura
 sentence-transformers
 numpy
+sumy
