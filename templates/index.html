@@ -7,39 +7,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div class="container">
-    <h1>ARUVI</h1>
+  <div class="bg-animation"></div>
+  
+  <h1 class="title">ARUVI</h1>
 
-    <form method="POST" class="form">
-      <input type="hidden" name="action" value="summarize">
-      <textarea name="text" placeholder="Paste or type your text here..." required></textarea>
-      <input type="submit" value="Summarize & Recommend">
-    </form>
+  <!-- Input Box -->
+  <form method="POST" class="box">
+    <input type="hidden" name="action" value="summarize">
+    <textarea name="text" class="textbox" placeholder="Paste or type your text here..." required></textarea>
+    <button type="submit" class="btn">Summarize</button>
+  </form>
 
-    {% if summary %}
-    <div class="output-box">
-      <h3>Summary:</h3>
-      <p>{{ summary }}</p>
-    </div>
-    {% endif %}
+  <!-- Output Box -->
+  {% if summary %}
+  <div class="box">
+    <h3>Summary</h3>
+    <p>{{ summary }}</p>
 
     {% if recommendations %}
-    <div class="output-box">
-      <h3>Recommendations:</h3>
-      <ul>
-        {% for title, url in recommendations %}
-          <li><a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
+    <h3>Recommendations</h3>
+    <ul>
+      {% for title, url in recommendations %}
+        <li><a href="{{ url }}" target="_blank">{{ title }}</a></li>
+      {% endfor %}
+    </ul>
     {% endif %}
 
-    <form method="POST" class="feedback-section">
+    <form method="POST" class="feedback-form">
       <input type="hidden" name="action" value="feedback">
-      <label for="feedback_text">Feedback (what was good/bad & why):</label>
-      <textarea name="feedback_text" id="feedback_text" placeholder="Write your feedback..."></textarea>
-      <input type="submit" value="Submit Feedback">
+      <textarea name="feedback_text" placeholder="Write your feedback..."></textarea>
+      <button type="submit" class="btn">Submit Feedback</button>
     </form>
   </div>
+  {% endif %}
 </body>
 </html>
