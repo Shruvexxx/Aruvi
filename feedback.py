@@ -1,21 +1,21 @@
-# feedback.py
-import csv, time, hashlib
+# feedback.py — send feedback to Google Sheets API
+import os, requests
 
-CSV_PATH = "feedback.csv"
-
-def _safe_csv_cell(s: str) -> str:
-    if s and s[0] in ("=", "+", "-", "@"):
-        return "'" + s
-    return s
+SHEETS_WEBAPP_URL = os.getenv(https://script.google.com/macros/s/AKfycbxdkgs261p9qWB1NHXWXHBmZMyuHpIWAmXF-kS6KAkJ5hhthcuo0NoHf1q2ulcKpRvWRA/exec)  # set this in env
 
 def save_feedback(summary_text: str, feedback_text: str):
-    ts = int(time.time())
-    sid = hashlib.sha1((summary_text or "").encode("utf-8")).hexdigest()[:12]
-    headers = ["ts", "summary_id", "feedback_text"]
-    row = [ts, sid, _safe_csv_cell(feedback_text or "")]
-    need_header = not os.path.exists(CSV_PATH)
-    with open(CSV_PATH, "a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        if need_header:
-            w.writerow(headers)
-        w.writerow(row)
+    if not SHEETS_WEBAPP_URL:
+        print("Warning: FEEDBACK_SHEETS_URL not set; feedback not sent.")
+        return
+
+    payload = {
+        "summary": (summary_text or "").strip(),
+        "feedback": (feedback_text or "").strip()
+    }
+    try:
+        r = requests.post(SHEETS_WEBAPP_URL, json=payload, timeout=10)
+        if r.status_code != 200:
+            print("Feedback POST failed:", r.text)
+    except Exception as e:
+        print("Feedback error:", e)
+
